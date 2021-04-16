@@ -12,6 +12,7 @@ ARKG_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_GENOM
 ARKF_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv"
 PRNT_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/THE_3D_PRINTING_ETF_PRNT_HOLDINGS.csv"
 IZRL_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_ISRAEL_INNOVATIVE_TECHNOLOGY_ETF_IZRL_HOLDINGS.csv"
+ARKX_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS.csv"
 
 arkholding = {
     "arkk": ARKK_HOLDINGS,
@@ -20,7 +21,8 @@ arkholding = {
     "arkg": ARKG_HOLDINGS,
     "arkf": ARKF_HOLDINGS,
     "prnt": PRNT_HOLDINGS,
-    "izrl": IZRL_HOLDINGS
+    "izrl": IZRL_HOLDINGS,
+    "arkx": ARKX_HOLDINGS
 }
 
 OBJECT_KEY_PATTERN="holdings/{today}_{etf}_holdings.csv"
