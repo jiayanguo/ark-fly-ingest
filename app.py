@@ -4,6 +4,7 @@ from pytz import timezone
 import csv
 import io
 import boto3
+import cloudscraper
 
 ARKK_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv"
 ARKQ_HOLDINGS="https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_AUTONOMOUS_TECHNOLOGY_&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv"
@@ -28,9 +29,12 @@ arkholding = {
 OBJECT_KEY_PATTERN="holdings/{today}_{etf}_holdings.csv"
 S3_BUCKET ="ark-fly"
 
+scraper = cloudscraper.create_scraper()
+
 # If the holding date is not today, return false
 def get_etf_holdings(etf, date):
-    response = requests.get(arkholding[etf])
+    print(arkholding[etf])
+    response = scraper.get(arkholding[etf])
     holding_date = get_holding_date(io.StringIO(response.text))
     if (holding_date == date):
         # fileName = today + "_" + etf + "_holdings.csv"
@@ -63,6 +67,7 @@ def main():
 def get_holding_date(csv_bin):
     reader = csv.DictReader(csv_bin)
     for row in reader:
+        print (row)
         if row["date"]:
             return datetime.strptime(row["date"], '%m/%d/%Y').strftime('%Y-%m-%d')
 

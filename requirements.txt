@@ -2,3 +2,4 @@ pytz==2020.4
 boto3==1.16.43
 oauth2client
 requests
+cloudscraper
